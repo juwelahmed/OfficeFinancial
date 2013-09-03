@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="OfficeFinancialUI.View.Company.VoucherEntry"
+             xmlns:ExtendedGridControl="clr-namespace:ExtendedGrid.ExtendedGridControl;assembly=ExtendedGrid"
+             xmlns:ExtendedColumn="clr-namespace:ExtendedGrid.ExtendedColumn;assembly=ExtendedGrid"
+             xmlns:WpfToolkit="clr-namespace:ExtendedGrid.Microsoft.Windows.Controls;assembly=ExtendedGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="700" >
+    
+    <Grid  Width="650" Height="auto" Background="Transparent" Margin="0,0,0,0" VerticalAlignment="Top" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Background="#FF007ACC" Margin="5" >
+            <TextBlock Padding="5,2,2,2"  Text="{DynamicResource mnuVoucherEntry}" FontSize="20" FontWeight="SemiBold" >
+                <TextBlock.Foreground>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
+                </TextBlock.Foreground>
+            </TextBlock>
+        </DockPanel>
+
+        <Grid  Grid.Row="1"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <DockPanel Width="600" Grid.Row="0" Margin="2">
+                <Label Content="{DynamicResource keyShortCodeVoucherEntry }" Width="300" />
+                <TextBox  Name="txtShortCode" Text="" Width="240" Style="{StaticResource roundTextBox}" LostFocus="TxtShortCodeLostFocus"  />
+                <Button x:Name="btnSearch" Content="Search" Width="60" Height="24" Click="BtnSearchClick"></Button>
+            </DockPanel>
+            <DockPanel Width="600"  Grid.Row="1" Margin="2">
+                <Label Content="{DynamicResource keyDebitAccountVoucherEntry }" Width="300" />
+                <ComboBox Name="cboDebitAccount" Width="300"  ></ComboBox>
+            </DockPanel>
+
+            <DockPanel Width="600" Grid.Row="2" Margin="2">
+                <Label Content="{DynamicResource keyCreditAccountVoucherEntry }" Width="300" />
+                <ComboBox Name="cboCreditAccount" Width="300"  ></ComboBox>
+            </DockPanel>
+            <DockPanel Width="600"  Grid.Row="3" Margin="2">
+                <Label Content="{DynamicResource keyCurrency }" Width="300" />
+                <ComboBox Name="cboCurrency" Width="300"  ></ComboBox>
+            </DockPanel>
+            <DockPanel Width="600" Grid.Row="4" Margin="2">
+                <Label Content="{DynamicResource keyTotal }" Width="300" />
+                <TextBox Name="txtTotal" Text="" Width="300" Style="{StaticResource roundTextBox}" PreviewTextInput="TxtTaxRatePreviewTextInput" />
+            </DockPanel>
+            <DockPanel Width="600" Grid.Row="5" Margin="2">
+                <Label Content="{DynamicResource keyValueTotal }" Width="300" />
+                <TextBox Name="txtValueTotal" Text="" Width="300" Style="{StaticResource roundTextBox}" PreviewTextInput="TxtTaxRatePreviewTextInput"/>
+            </DockPanel>
+            <DockPanel Width="600" Grid.Row="6" Margin="2">
+                <Label Content="{DynamicResource keyVoucherDate }" Width="300" />
+                <DatePicker x:Name="dtpVoucherDate" Height="30" />
+            </DockPanel>
+            <DockPanel Width="600" Grid.Row="6" Margin="2">
+                <Label Content="{DynamicResource keyValueTotal }" Width="300" />
+                <TextBox Name="txtLineId" Text="" Width="300" Style="{StaticResource roundTextBox}" Visibility="Collapsed"/>
+            </DockPanel>
+        </Grid>
+        <DockPanel Grid.Row="2"  HorizontalAlignment="Center" Margin="10">
+
+            <ExtendedGridControl:ExtendedDataGrid x:Name="grid"  IsReadOnly="True"  CanUserAddRows="False" Width="600" AutoGenerateColumns="False" HideColumnChooser="true"  Height="250" SelectionChanged="GridSelectionChanged">
+                <WpfToolkit:DataGrid.Columns>
+                    <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyVoucherNo}" Width="auto"
+                                           Binding="{Binding VoucherNo}" />
+                    <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyDebitAccount }"
+                                           Binding="{Binding DebitAccountCode}" AllowAutoFilter="False" Visibility="Collapsed" />
+                    <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyDebitAccountVoucherEntry }"
+                                           Binding="{Binding DebitAccountName}" AllowAutoFilter="False" />
+                    <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyCreditAccount }" 
+                                           Binding="{Binding CreditAccountCode}" AllowAutoFilter="False" Visibility="Collapsed"/>
+                    <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyCreditAccountVoucherEntry }" 
+                                           Binding="{Binding CreditAccountName}" AllowAutoFilter="False"/>
+                    <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyCurrency }" 
+                                           Binding="{Binding CurrencyCode}" AllowAutoFilter="False"/>
+                    <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyTotal }" 
+                                           Binding="{Binding Total}" AllowAutoFilter="False"/>
+                    <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyVoucherDate }" 
+                                           Binding="{Binding VoucherDate}" AllowAutoFilter="False"/>
+                    <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyVoucherDate }" 
+                                           Binding="{Binding LineId}" AllowAutoFilter="False" Visibility="Collapsed"/>
+                </WpfToolkit:DataGrid.Columns>
+            </ExtendedGridControl:ExtendedDataGrid>
+        </DockPanel>
+    </Grid>
+
+</UserControl>

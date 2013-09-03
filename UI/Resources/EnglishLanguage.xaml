@@ -1,0 +1,88 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib"
+                    >
+    
+    <!--Module Name-->
+            
+
+    <s:String x:Key="moduleAdministration"> Administration</s:String>
+    <s:String x:Key="moduleCompany">Company</s:String>
+    <s:String x:Key="moduleAccounting">Accounting</s:String>
+    <s:String x:Key="moduleSale">Sale</s:String>
+    <s:String x:Key="modulePurchase">Purchase</s:String>
+    <s:String x:Key="moduleInventory">Inventory</s:String>
+    <s:String x:Key="moduleDimentions">Dimentions</s:String>
+
+    <!--End Module-->
+
+    <!--Sub Menu Administration-->
+    
+    <!--Application user Screen-->
+    <s:String x:Key="menuUserList">Application User</s:String>
+    <!--Fields-->
+    <s:String x:Key="keyApplicationUserId">User Id</s:String>
+    <s:String x:Key="keyApplicationUserPassword">Password</s:String>
+    <s:String x:Key="keyNotes">Notes</s:String>
+    <s:String x:Key="keyLanguage">Language</s:String>
+    <s:String x:Key="keyTheme">Theme</s:String>
+    <s:String x:Key="keyFontName">Font Name</s:String>
+    <s:String x:Key="keyFontSize">Font Size</s:String>
+
+  <!--Change Password Screen-->
+    <s:String x:Key="mnuChangepassword">Change Password</s:String>
+    <!--Fields-->
+    <s:String x:Key="keyOldPassword">Old Password</s:String>
+    <s:String x:Key="keyNewPassword">New Password</s:String>
+    
+    <s:String x:Key="mnuLogin">Login To System</s:String>
+    
+    <!--End Sub Menu Administration-->
+    
+    <!--Sub Menu Company-->
+    <s:String x:Key="menuCompanySetup">Company Setup</s:String>
+    <!--Fields-->
+    
+    <s:String x:Key="menuChartOfAccount">Chart of Accounts</s:String>
+    <!--Fields-->
+    <s:String x:Key="keyAccountId">Account ID</s:String>
+    <s:String x:Key="keyAccountText">Account Text</s:String>
+    <s:String x:Key="keyAccountType">Account Type</s:String>
+    <s:String x:Key="keySumFrom">Sum From</s:String>
+    <s:String x:Key="keyTax">Tax</s:String>
+    
+    <s:String x:Key="menuTaxSetup">Tax Setup</s:String>
+    <!--Fields-->
+    <s:String x:Key="menuAccountingYearSetup">Accounting Year Setup</s:String>
+    
+    <!--End Sub Menu Company-->
+    <!--Accounting-->
+    <s:String x:Key="menuVoucherPostingMenu">Voucher Posting</s:String>
+
+    <!--End Accounting-->
+    <s:String x:Key="keyUserId">User Id:</s:String>
+	<s:String x:Key="keyPassword">Password:</s:String>
+	<s:String x:Key="keyOk">OK</s:String>
+	<s:String x:Key="keyCancel">Cancel</s:String>
+	<s:String x:Key="keyCity">City:</s:String>
+	<s:String x:Key="keyPhone">Phone Number:</s:String>
+	<s:String x:Key="keyDesignation">Designation:</s:String>
+
+    <s:String x:Key="mnuVoucherTeplate">Voucher Teplate</s:String>
+    <s:String x:Key="keyShortCode">Short Code</s:String>
+    <s:String x:Key="keyDebitAccount">Debit Account</s:String>
+    <s:String x:Key="keyCreditAccount">Credit Account</s:String>
+    <s:String x:Key="keyNarration">Narration</s:String>
+
+    <s:String x:Key="mnuVoucherEntry">Voucher Entry</s:String>
+    <s:String x:Key="keyShortCodeVoucherEntry">Short Code</s:String>
+    <s:String x:Key="keyDebitAccountVoucherEntry">Debit Account</s:String>
+    <s:String x:Key="keyCreditAccountVoucherEntry">Credit Account</s:String>
+    <s:String x:Key="keyTotal">Total</s:String>
+    <s:String x:Key="keyCurrency">Currency</s:String>
+    <s:String x:Key="keyValueTotal">Value Total</s:String>
+    <s:String x:Key="keyVoucherDate">Voucher Date</s:String>
+    <s:String x:Key="keyVoucherNo">Voucher No</s:String>
+    <s:String x:Key="titleVoucherTemplateSearch">Voucher Template Search</s:String>
+    
+</ResourceDictionary>

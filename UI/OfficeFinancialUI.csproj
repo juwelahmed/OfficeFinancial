@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{43848FB8-6E00-4D0D-AD01-AE3FBA55433F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OfficeFinancialUI</RootNamespace>
+    <AssemblyName>OfficeFinancialUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=1.3.0.733, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Logging\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling">
+      <HintPath>..\packages\Logging\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging">
+      <HintPath>..\packages\Logging\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Logging\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Logging\Microsoft.Practices.ObjectBuilder2.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Common\BaseUserControl.cs" />
+    <Compile Include="Converter\ConcatenateFieldsMultiValueConverter.cs" />
+    <Compile Include="CornerRadiousButton.xaml.cs">
+      <DependentUpon>CornerRadiousButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastracture\ICommandService.cs" />
+    <Compile Include="Infrastracture\TryCatch.cs" />
+    <Compile Include="Model\Languages.cs" />
+    <Compile Include="Setup\SetupHelper.cs" />
+    <Compile Include="ShatedData\ApplicationState.cs" />
+    <Compile Include="ViewModel\BaseModel.cs" />
+    <Compile Include="ViewModel\ImportModule.cs" />
+    <Compile Include="ViewModel\LanguageViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\Accounting\AccountingYearSetup.xaml.cs">
+      <DependentUpon>AccountingYearSetup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Accounting\VoucherPosting.xaml.cs">
+      <DependentUpon>VoucherPosting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\ChartOfAccount.xaml.cs">
+      <DependentUpon>ChartOfAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\CompanySetup.xaml.cs">
+      <DependentUpon>CompanySetup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\TaxSetup.xaml.cs">
+      <DependentUpon>TaxSetup.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\Company\VoucherEntry.xaml.cs">
+      <DependentUpon>VoucherEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\VoucherTemplateSearch.xaml.cs">
+      <DependentUpon>VoucherTemplateSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\VoucherTemplateSetup.xaml.cs">
+      <DependentUpon>VoucherTemplateSetup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Security\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Security\UserList.xaml.cs">
+      <DependentUpon>UserList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Security\UserLogin.xaml.cs">
+      <DependentUpon>UserLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CornerRadiousButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resources\AppStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DenishLanguage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\EnglishLanguage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Accounting\AccountingYearSetup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Accounting\VoucherPosting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Company\ChartOfAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\CompanySetup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\TaxSetup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\VoucherEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\VoucherTemplateSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\VoucherTemplateSetup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Security\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Security\UserList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Security\UserLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExtendedGrid\ExtendedGrid.csproj">
+      <Project>{ef568126-a1d2-49cf-a2c1-1edb8dfc3e40}</Project>
+      <Name>ExtendedGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OfficeFinancial.Business\OfficeFinancial.Business.csproj">
+      <Project>{86a15e4d-0177-4065-933e-26ec20467516}</Project>
+      <Name>OfficeFinancial.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OfficeFinancial.Common\OfficeFinancial.Common.csproj">
+      <Project>{6eac27ef-45c1-4d0b-905b-58fc1461799a}</Project>
+      <Name>OfficeFinancial.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OfficeFinancial.Data\OfficeFinancial.Data.csproj">
+      <Project>{c76188bb-b0e8-49ce-ae3a-a92b8160da40}</Project>
+      <Name>OfficeFinancial.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OfficeFinancial.Entities\OfficeFinancial.Entities.csproj">
+      <Project>{0295d775-ce85-4c63-9f5c-325f35be464e}</Project>
+      <Name>OfficeFinancial.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OfficeFinancialUI.Common\OfficeFinancialUI.Common.csproj">
+      <Project>{f8ed91ef-7e4d-44b6-872b-fae0593fdb0f}</Project>
+      <Name>OfficeFinancialUI.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryPattern.Infrastructure\OfficeFinancial.Infrastructure.csproj">
+      <Project>{5efa398f-ded4-43e6-99f5-00f57446dc8a}</Project>
+      <Name>OfficeFinancial.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Button\button_plus_blue.png" />
+    <Resource Include="Images\Button\save.png" />
+    <Resource Include="Images\Button\symbol_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Modules\AccountingModule.png" />
+    <Resource Include="Images\Modules\CompanySetupModule.png" />
+    <Resource Include="Images\Modules\SecurityAdminModule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Button\button_cancel.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

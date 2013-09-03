@@ -1,0 +1,69 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib"
+                    >
+
+    <!--Module Name-->
+
+    <s:String x:Key="moduleAdministration">administration</s:String>
+    <s:String x:Key="moduleCompany">Company</s:String>
+    <s:String x:Key="moduleAccounting">Regnskab</s:String>
+    <s:String x:Key="moduleSale">salg</s:String>
+    <s:String x:Key="modulePurchase">Køb</s:String>
+    <s:String x:Key="moduleInventory">Inventory</s:String>
+    <s:String x:Key="moduleDimentions">dimensioner</s:String>
+
+    <!--End Module-->
+
+    <!--Sub Menu Administration-->
+
+    <!--Application user Screen-->
+    <s:String x:Key="menuUserList">ansøgning Bruger</s:String>
+    <!--Fields-->
+    <s:String x:Key="keyApplicationUserId">bruger-id</s:String>
+    <s:String x:Key="keyApplicationUserPassword">adgangskode</s:String>
+    <s:String x:Key="keyNotes">Bemærkninger</s:String>
+    <s:String x:Key="keyLanguage">sprog</s:String>
+    <s:String x:Key="keyTheme">Theme</s:String>
+    <s:String x:Key="keyFontName">Font Name</s:String>
+    <s:String x:Key="keyFontSize">skriftstørrelse</s:String>
+
+    <!--Change Password Screen-->
+    <s:String x:Key="mnuChangepassword">Skift adgangskode</s:String>
+    <!--Fields-->
+    <s:String x:Key="keyOldPassword">gammelt Kodeord</s:String>
+    <s:String x:Key="keyNewPassword">ny adgangskode</s:String>
+
+    <s:String x:Key="mnuLogin">Login To System</s:String>
+
+    <!--End Sub Menu Administration-->
+    
+    <!--Sub Menu Company-->
+    <s:String x:Key="menuCompanySetup">Company Setup</s:String>
+    <!--Fields-->
+    
+    <s:String x:Key="menuChartOfAccount">Kontoplan</s:String>
+    <!--Fields-->
+    <s:String x:Key="keyAccountId">konto-id</s:String>
+    <s:String x:Key="keyAccountText">konto Tekst</s:String>
+    <s:String x:Key="keyAccountType">Kontotype</s:String>
+    <s:String x:Key="keySumFrom">sum Fra</s:String>
+    <s:String x:Key="keyTax">skat</s:String>
+
+    <s:String x:Key="menuTaxSetup">skat Setup</s:String>
+    <!--Fields-->
+    <s:String x:Key="menuAccountingYearSetup">Regnskabsår Setup</s:String>
+    <!--End Sub Menu Company-->
+    <!--Accounting-->
+    <s:String x:Key="menuVoucherPostingMenu">Voucher Posting</s:String>
+
+    <!--End Accounting-->
+    
+    <s:String x:Key="keyUserId">bruger-id:</s:String>
+    <s:String x:Key="keyPassword">adgangskode:</s:String>
+	<s:String x:Key="keyOk">OK</s:String>
+    <s:String x:Key="keyCancel">Annuller</s:String>
+	<s:String x:Key="keyCity">City:</s:String>
+	<s:String x:Key="keyPhone">Phone Number:</s:String>
+	<s:String x:Key="keyDesignation">Designation:</s:String>
+</ResourceDictionary>

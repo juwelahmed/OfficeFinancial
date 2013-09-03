@@ -1,0 +1,57 @@
+﻿<Window x:Class="OfficeFinancialUI.View.Company.VoucherTemplateSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ExtendedColumn="clr-namespace:ExtendedGrid.ExtendedColumn;assembly=ExtendedGrid"
+        xmlns:WpfToolkit="clr-namespace:ExtendedGrid.Microsoft.Windows.Controls;assembly=ExtendedGrid"
+        xmlns:ExtendedGridControl="clr-namespace:ExtendedGrid.ExtendedGridControl;assembly=ExtendedGrid"
+        Title="{DynamicResource titleVoucherTemplateSearch }" Height="390" Width="694" WindowStartupLocation="CenterScreen" WindowStyle="SingleBorderWindow" >
+
+    <Grid  Width="650" Height="auto" Background="Transparent" Margin="0,0,0,0" VerticalAlignment="Top" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" BorderThickness="1" BorderBrush="CadetBlue" CornerRadius="5">
+                <DockPanel Margin="5">
+                    <Label Content="{DynamicResource keyShortCodeVoucherEntry }" Width="300" />
+                    <TextBox  Name="txtShortCode" Text="" Width="240" Style="{StaticResource roundTextBox}"/>
+                    <Button x:Name="btnShow" Content="Search" Width="60" Height="24" Click="BtnShowClick"></Button>
+                </DockPanel>
+            </Border>
+        </Grid>
+
+        <Border Grid.Row="3" BorderThickness="1" BorderBrush="CadetBlue" CornerRadius="5">
+           
+            <DockPanel HorizontalAlignment="Center" Margin="10">
+                <ExtendedGridControl:ExtendedDataGrid x:Name="grid"  IsReadOnly="True"  CanUserAddRows="False" Width="600" AutoGenerateColumns="False" HideColumnChooser="true"  Height="250" MouseDoubleClick="GridMouseDoubleClick">
+                    <WpfToolkit:DataGrid.Columns>
+                        <WpfToolkit:DataGridTemplateColumn>
+                            
+                        </WpfToolkit:DataGridTemplateColumn>
+                        <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyShortCode}" Width="auto"
+                                           Binding="{Binding ShortCode}" />
+                        <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyDebitAccount }"
+                                           Binding="{Binding DebitAccountCode}" AllowAutoFilter="False" Visibility="Collapsed" />
+                        <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyDebitAccount }"
+                                           Binding="{Binding DebitAccountName}" AllowAutoFilter="False" />
+                        <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyCreditAccount }" 
+                                           Binding="{Binding CreditAccountCode}" AllowAutoFilter="False" Visibility="Collapsed"/>
+                        <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyCreditAccount }" 
+                                           Binding="{Binding CreditAccountName}" AllowAutoFilter="False"/>
+                        <ExtendedColumn:ExtendedDataGridTextColumn Header="{DynamicResource keyNarration }" 
+                                           Binding="{Binding Narration}" AllowAutoFilter="False"
+                                           />
+                    </WpfToolkit:DataGrid.Columns>
+                </ExtendedGridControl:ExtendedDataGrid>
+            </DockPanel>
+        </Border>
+    </Grid>
+
+</Window>

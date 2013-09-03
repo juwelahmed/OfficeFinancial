@@ -1,0 +1,169 @@
+﻿<UserControl
+                           x:Class="OfficeFinancialUI.View.Security.UserList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:ExtendedGridControl="clr-namespace:ExtendedGrid.ExtendedGridControl;assembly=ExtendedGrid"
+             xmlns:ExtendedColumn="clr-namespace:ExtendedGrid.ExtendedColumn;assembly=ExtendedGrid"
+             xmlns:WpfToolkit="clr-namespace:ExtendedGrid.Microsoft.Windows.Controls;assembly=ExtendedGrid"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" d:DesignWidth="650" >
+    <StackPanel Orientation="Vertical">
+    <Border Margin="4"
+                BorderBrush="#FFEEE4E4"
+                Background="White"
+                BorderThickness="1,1,1,1"
+                CornerRadius="10" Padding="0,10,0,0"
+            Width="650" Height="auto"
+            >
+        <Grid  Width="650" Height="auto" Background="Transparent" Margin="0,0,0,0" VerticalAlignment="Top" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <DockPanel Grid.Row="0" Background="#FF007ACC" Margin="5" >
+                <TextBlock Padding="5,2,2,2"  Text="{DynamicResource menuUserList}" FontSize="20" FontWeight="SemiBold" >
+                    <TextBlock.Foreground>
+                        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
+                    </TextBlock.Foreground>
+                </TextBlock>
+            </DockPanel>
+            <Grid  Grid.Row="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="500"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid  Grid.Row="0" Grid.Column="0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DockPanel Width="500" Grid.Row="0" Margin="2">
+                        <Label Content="{DynamicResource keyApplicationUserId}" Width="240" />
+                        <TextBox  Name="txtUserId" Text="" Width="240" Style="{StaticResource roundTextBox}" />
+                    </DockPanel>
+                    <DockPanel Width="500"  Grid.Row="1" Margin="2">
+                        <Label Content="{DynamicResource keyApplicationUserPassword}" Width="240" />
+                        <TextBox Name="txtPassword" Text="" Width="240" Style="{StaticResource roundTextBox}" />
+                    </DockPanel>
+                    <DockPanel Width="500" Grid.Row="2" Margin="2">
+                        <Label Content="{DynamicResource keyNotes}" Width="240" />
+                        <TextBox  Name="txtNotes" Text="" Width="240" Style="{StaticResource roundTextBox}" />
+                    </DockPanel>
+                    <DockPanel Width="500" Grid.Row="3" Margin="2">
+                        <Label Content="{DynamicResource keyLanguage}" Width="240" />
+                        <!--<TextBox Text="" Width="240"  Style="{StaticResource roundTextBox}"/>-->
+                            <ComboBox Name="cboLanguage" Width="240"  ></ComboBox>
+                    </DockPanel>
+                    <DockPanel Width="500" Grid.Row="4" Margin="2">
+                        <Label Content="{DynamicResource keyTheme}" Width="240" />
+                        <!--<TextBox Text="" Width="240"  Style="{StaticResource roundTextBox}"/>-->
+                            <ComboBox Name="cboTheme" Width="240"  ></ComboBox>
+                        </DockPanel>
+
+                    <DockPanel Width="500" Grid.Row="5" Margin="2">
+                        <Label Content="{DynamicResource keyFontName}" Width="240" />
+                        <!--<TextBox Text="" Width="240"  Style="{StaticResource roundTextBox}"/>-->
+                            <ComboBox Name="cboFont" Width="240"  ></ComboBox>
+                        </DockPanel>
+                    <DockPanel Width="500" Grid.Row="6" Margin="2">
+                        <Label Content="{DynamicResource keyFontSize}" Width="240" />
+                        <!--<TextBox Name="txtFontSize" Text="" Width="240" Style="{StaticResource roundTextBox}"/>-->
+                            <ComboBox Name="cboFontSize" Width="240"  ></ComboBox>
+                        </DockPanel>
+                </Grid>
+                <StackPanel Grid.Row="0" Grid.Column="1" Margin="10" Orientation="Vertical">
+                    <CheckBox Name="chkAdministration" Content="{DynamicResource moduleAdministration}"/>
+                    <CheckBox Name="chkCompany" Content="{DynamicResource moduleCompany}"/>
+                    <CheckBox Name="chkAccounting" Content="{DynamicResource moduleAccounting}"/>
+                    <CheckBox Name="chkSale"  Content="{DynamicResource moduleSale}"/>
+                    <CheckBox Name="chkPurchase" Content="{DynamicResource modulePurchase}"/>
+                    <CheckBox Name="chkInventory" Content="{DynamicResource moduleInventory}"/>
+                    <CheckBox Name="chkDimentions" Content="{DynamicResource moduleDimentions}"/>
+                </StackPanel>
+            </Grid>
+
+            
+            <DockPanel Grid.Row="2"  HorizontalAlignment="Center" Margin="10">
+            <!--<Border Margin="4,0,1,4" 
+                BorderBrush="White"
+                BorderThickness="1,1,1,1"
+                CornerRadius="15" Background="#FFE6E6F0" Width="120" >
+                <Button Content="Add New"  Name="btnAddNew" Background="Transparent"   />
+                </Border>
+                <Border Margin="4,0,1,4" 
+                BorderBrush="White"
+                BorderThickness="1,1,1,1"
+                CornerRadius="15" Background="#FFE6E6F0" Width="120" >
+                <Button Content="Save"  Name="btnSave" Background="Transparent"   />
+                </Border>
+                <Border Margin="4,0,1,4" 
+                BorderBrush="White"
+                BorderThickness="1,1,1,1"
+                CornerRadius="15" Background="#FFE6E6F0" Width="120" >
+                <Button Content="Delete"  Name="btnDelete" Background="Transparent"   />
+                </Border>-->
+                    <ExtendedGridControl:ExtendedDataGrid x:Name="grid" IsReadOnly="True" AutoGenerateColumns="False" HideColumnChooser="true"  Height="300"   SelectionChanged="grid_SelectionChanged"
+                           >
+                        <WpfToolkit:DataGrid.Columns>
+                            <ExtendedColumn:ExtendedDataGridTextColumn Header="ID" 
+                                           Binding="{Binding ID}" />
+                            <!--<ExtendedColumn:ExtendedDataGridTextColumn Header="Creator" 
+                                           Binding="{Binding Creator}" />-->
+                            <ExtendedColumn:ExtendedDataGridTextColumn Header="Password"
+                                           Binding="{Binding Password}" AllowAutoFilter="False" />
+                            <ExtendedColumn:ExtendedDataGridTextColumn Header="Notes"
+                                           Binding="{Binding Notes}" AllowAutoFilter="False"
+                                           />
+                            <ExtendedColumn:ExtendedDataGridTextColumn Header="Language" AllowAutoFilter="False"
+                                           Binding="{Binding Language}" />
+                            <ExtendedColumn:ExtendedDataGridTextColumn Header="Theme" AllowAutoFilter="False"
+                                           Binding="{Binding Theme}" />
+                            <ExtendedColumn:ExtendedDataGridTextColumn Header="Font Name"
+                                           Binding="{Binding FontName}" AllowAutoFilter="False"/>
+                            <ExtendedColumn:ExtendedDataGridTextColumn Header="Font Size"
+                                           Binding="{Binding FontSize}" AllowAutoFilter="False"
+                                           CanUserSort="False" Width="*"/>
+                        </WpfToolkit:DataGrid.Columns>
+                    </ExtendedGridControl:ExtendedDataGrid>
+                </DockPanel>
+        </Grid>
+    </Border>
+        <!--<Border Margin="4"
+                BorderBrush="#FFEEE4E4"
+                Background="White"
+                BorderThickness="1,1,1,1"
+                CornerRadius="10" Padding="0,0,0,0" Width="650" 
+ >
+            <DockPanel  HorizontalAlignment="Center" Margin="10">
+                <Border Margin="4,0,1,4" 
+                BorderBrush="White"
+                BorderThickness="1,1,1,1"
+                CornerRadius="15" Background="#FFE6E6F0" Width="120" >
+                    <Button Content="Add New"  Name="btnAddNew" Background="Transparent"   />
+                </Border>
+                <Border Margin="4,0,1,4" 
+                BorderBrush="White"
+                BorderThickness="1,1,1,1"
+                CornerRadius="15" Background="#FFE6E6F0" Width="120" >
+                    <Button Content="Save"  Name="btnSave" Background="Transparent"   />
+                </Border>
+                <Border Margin="4,0,1,4" 
+                BorderBrush="White"
+                BorderThickness="1,1,1,1"
+                CornerRadius="15" Background="#FFE6E6F0" Width="120" >
+                    <Button Content="Delete"  Name="btnDelete" Background="Transparent"   />
+                </Border>
+            </DockPanel>
+        </Border>-->
+    </StackPanel>
+</UserControl>

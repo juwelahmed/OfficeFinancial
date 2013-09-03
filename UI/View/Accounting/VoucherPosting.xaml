@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="OfficeFinancialUI.View.Accounting.VoucherPosting"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ExtendedGridControl="clr-namespace:ExtendedGrid.ExtendedGridControl;assembly=ExtendedGrid"
+             xmlns:ExtendedColumn="clr-namespace:ExtendedGrid.ExtendedColumn;assembly=ExtendedGrid"
+             xmlns:WpfToolkit="clr-namespace:ExtendedGrid.Microsoft.Windows.Controls;assembly=ExtendedGrid"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="800">
+    <StackPanel Orientation="Vertical">
+        <Border Margin="4"
+                BorderBrush="#FFEEE4E4"
+                Background="White"
+                BorderThickness="1,1,1,1"
+                CornerRadius="10" Padding="0,10,0,0"
+            Width="800" Height="700"
+            >
+            <Grid  Width="800" Height="700" Background="Transparent" Margin="0,0,0,0" VerticalAlignment="Top" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="500"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <DockPanel Grid.Row="0" Background="#FF007ACC" Margin="5"  >
+                    <TextBlock Padding="5,2,2,2"  Text="Voucher Posting" FontSize="20" FontWeight="SemiBold" >
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                </DockPanel>
+
+                <DockPanel Grid.Row="1"  HorizontalAlignment="Center" Margin="10">
+
+                    <ExtendedGridControl:ExtendedDataGrid x:Name="grid" Height="300" VerticalAlignment="Top"   IsReadOnly="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" CanUserAddRows="False" Width="750" AutoGenerateColumns="False" HideColumnChooser="true"    >
+                        <WpfToolkit:DataGrid.RowDetailsTemplate>
+                            <DataTemplate>
+                                <WpfToolkit:DataGrid AutoGenerateColumns="False" GridLinesVisibility="Horizontal" Margin="20 0 0 0"
+SelectionMode="Extended" RowDetailsVisibilityMode="Collapsed"  CanUserAddRows="False"
+  ItemsSource="{Binding Path=ItemDetail}">
+                                    <WpfToolkit:DataGrid.Columns>
+                                        <ExtendedColumn:ExtendedDataGridTextColumn Header="Voucher No" Binding="{Binding Path=VoucherNo}"  Width="100" />
+                                        <!--<ExtendedColumn:ExtendedDataGridTextColumn Header="Voucher No" Binding="{Binding Path=VoucherNo}" />-->
+                                        <ExtendedColumn:ExtendedDataGridTextColumn Header="Particular" Binding="{Binding Path=Particular}"  Width="100" />
+                                        <ExtendedColumn:ExtendedDataGridTextColumn Header="Account Code"  Binding="{Binding Path=AccountCode}"  Width="100" />
+                                        <ExtendedColumn:ExtendedDataGridTextColumn Header="Debit"  Binding="{Binding Path=DebitAmount}"  Width="100" />
+                                        <ExtendedColumn:ExtendedDataGridTextColumn Header="Credit"  Binding="{Binding Path=CreditAmount}"  Width="100"  />
+                                        <ExtendedColumn:ExtendedDataGridTextColumn Header="Total"  Binding="{Binding Path=TotalDebitCredit}"  Width="100" />
+                                    </WpfToolkit:DataGrid.Columns>
+                                </WpfToolkit:DataGrid>
+                            </DataTemplate>
+                        </WpfToolkit:DataGrid.RowDetailsTemplate>
+                        <WpfToolkit:DataGrid.Columns>
+                            <ExtendedColumn:ExtendedDataGridTextColumn Header="Account" Width="300" 
+                                           Binding="{Binding AccountName}" />
+                            <ExtendedColumn:ExtendedDataGridTextColumn Header="Before" Width="100" 
+                                           Binding="{Binding BeforeTransactionBalance}" AllowAutoFilter="False" />
+                            <ExtendedColumn:ExtendedDataGridTextColumn Header="Debit" Width="100" 
+                                           Binding="{Binding Debit}" AllowAutoFilter="False"
+                                           />
+                            <ExtendedColumn:ExtendedDataGridTextColumn Header="Credit" Width="100" 
+                                           Binding="{Binding Credit}" AllowAutoFilter="False" Foreground="Black"
+                                           />
+                            <ExtendedColumn:ExtendedDataGridTextColumn Header="After" AllowAutoFilter="False" Width="100" 
+                                           Binding="{Binding AfterTransactionBalance}" />
+
+
+                        </WpfToolkit:DataGrid.Columns>
+                    </ExtendedGridControl:ExtendedDataGrid>
+                </DockPanel>
+            </Grid>
+        </Border>
+
+    </StackPanel>
+</UserControl>

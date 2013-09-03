@@ -1,0 +1,112 @@
+﻿<Window x:Class="OfficeFinancialUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="1200" WindowState="Maximized" Background="#FF2C3F4F">
+    <Grid  Width="1200" Margin="10" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="White">
+            <StackPanel    HorizontalAlignment="Right"  >
+                <ComboBox x:Name="LanguageComboBox" Width="150"
+			          DisplayMemberPath="Name"
+			          ItemsSource="{Binding LanguageList}"
+			          SelectedItem="{Binding SelectedLanguage,
+			                                 Mode=TwoWay}" SelectionChanged="LanguageComboBox_SelectionChanged"
+
+			          />
+            </StackPanel>
+        </StackPanel>
+        <Grid Grid.Row="1" Background="#FFBDC3C7" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0"  Grid.Column="0" x:Name="gridLeftPane"  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="0"></DockPanel>
+                <DockPanel Grid.Row="1">
+
+                    <ListBox Name="listBoxSubMenu" Style="{StaticResource RoundedItem}" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Transparent" Width="250" SelectionChanged="listBoxSubMenu_SelectionChanged" >
+                        <!--<ListBoxItem Width="250"  >This is item 1.</ListBoxItem>
+                        <ListBoxItem Width="250"  >This is item 2.</ListBoxItem>
+                        <ListBoxItem Width="250" >This is item 3.</ListBoxItem>
+                        <ListBoxItem Width="250" >This is item 4.</ListBoxItem>
+                        <ListBoxItem Width="250" >This is item 5.</ListBoxItem>-->
+                    </ListBox>
+
+                </DockPanel>
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="1"   x:Name="gridRightPane"  HorizontalAlignment="Stretch" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Margin="-5,0,-5,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="65"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <!--Module Menu-->
+                <ListView Grid.Row="0" VerticalAlignment="Top" Background="#FF2C83BB"  Name="listViewModuleList" BorderThickness="0">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListViewItem  MouseUp="ListViewItem_MouseUp" Tag="1" Style="{StaticResource StyleTamplateModuleItem}" Content="{DynamicResource moduleAdministration}"  >
+                    </ListViewItem>
+                    <ListViewItem  MouseUp="ListViewItem_MouseUp" Tag="2" Style="{StaticResource StyleTamplateModuleItem}" Content="{DynamicResource moduleCompany}" >
+                    </ListViewItem>
+                    <ListViewItem  MouseUp="ListViewItem_MouseUp" Tag="3" Style="{StaticResource StyleTamplateModuleItem}" Content="{DynamicResource moduleAccounting}"  >
+                    </ListViewItem>
+                    <ListViewItem  MouseUp="ListViewItem_MouseUp" Tag="4" Style="{StaticResource StyleTamplateModuleItem}" Content="{DynamicResource moduleSale}" >
+                    </ListViewItem>
+                    <ListViewItem  MouseUp="ListViewItem_MouseUp" Tag="5" Style="{StaticResource StyleTamplateModuleItem}" Content="{DynamicResource modulePurchase}"  >
+                    </ListViewItem>
+                    <ListViewItem  MouseUp="ListViewItem_MouseUp" Tag="6" Style="{StaticResource StyleTamplateModuleItem}" Content="{DynamicResource moduleInventory}" >
+                    </ListViewItem>
+                    <ListViewItem  MouseUp="ListViewItem_MouseUp" Tag="7" Style="{StaticResource StyleTamplateModuleItem}" Content="{DynamicResource moduleDimentions}"  >
+                    </ListViewItem>
+                </ListView>
+                <!--End Module Menu-->
+                <!--Tool bar-->
+                <StackPanel Background="#FFE2E6E8" Grid.Row="1" Margin="0,2,0,0">
+                    <DockPanel Background="#FFE2E6E8"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="30">
+
+                        <Button Name="btnAddItem"  ToolTip="Add New"  Width="50"    Click="btnAddItem_Click">
+                            <Button.Background>
+                                <ImageBrush ImageSource ="images/button/button_plus_blue.png" ></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button Name="btnSaveItem" ToolTip="Save" Width="50" Click="btnSaveItem_Click">
+                                <Button.Background>
+                                <ImageBrush ImageSource ="images/button/save.png" ></ImageBrush>
+                            </Button.Background>
+                            </Button>
+                        <Button Name="btnDeleteItem" ToolTip="Delete" Width="50" Click="btnDeleteItem_Click">
+
+                            <Button.Background>
+                                <ImageBrush ImageSource ="images/button/button_cancel.png" ></ImageBrush>
+                            </Button.Background>
+                        </Button>
+                        <Button Name="btnExportToCSV" Content="CSV" Width="50" Click="btnExportToCSV_Click"  ></Button>
+                        <Button Name="btnExportToExcel" Content="Excel" Width="50"  Click="btnExportToExcel_Click" ></Button>
+                        <Button Name="btnExportToPDF" Content="PDF" Width="50" Click="btnExportToPDF_Click"></Button>
+                    </DockPanel>
+                </StackPanel>
+                <!--<StackPanel Orientation="Vertical" Grid.Row="1" VerticalAlignment="Top" Height="auto">-->
+                <DockPanel x:Name="mainPanel" Grid.Row="2" VerticalAlignment="Center" Margin="5" Height="auto">
+
+                </DockPanel>
+
+                <!--</StackPanel>-->
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
